@@ -14,11 +14,15 @@ export class TestService {
     return this.httpClient.get(this.baseURL);
   }
 
-  public delete(id: number): Observable<any> {
-    return this.httpClient.delete(this.baseURL + "/" + id);
+  public delete(idT: number): Observable<any> {
+    return this.httpClient.delete(this.baseURL + "/" + idT);
   }
 
   public save(test: Test): Observable<any>{
     return this.httpClient.post(this.baseURL, test);
     }
+
+  public findOne(idT: number): Observable<any>{
+    return this.httpClient.get(this.baseURL+ "/" + idT);
+  }
 }
