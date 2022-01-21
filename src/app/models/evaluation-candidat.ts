@@ -1,4 +1,4 @@
 export class EvaluationCandidat {
     idEvaluationCandidat!:number;
-    note!:string;
+    note!:number;
 }
