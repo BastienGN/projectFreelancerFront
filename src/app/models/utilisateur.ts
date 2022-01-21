@@ -5,7 +5,7 @@ export class Utilisateur {
     username!:string;
     password!:string;
     adresseMail!:string;
-    telephone!:number;
+    telephone!:string;
     cv!:File;
-    note:number;
+    note!:string;
 }

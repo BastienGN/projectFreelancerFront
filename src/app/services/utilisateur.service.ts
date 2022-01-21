@@ -25,8 +25,8 @@ export class UtilisateurService {
     formData.append('username',utilisateur.username);
     formData.append('password',utilisateur.password);
     formData.append('adresseMail', utilisateur.adresseMail);
-    formData.append('telephone', utilisateur.telephone.toString());
-    formData.append('note', utilisateur.note.toString());
+    formData.append('telephone', utilisateur.telephone);
+    formData.append('note', utilisateur.note);
     formData.append('cv',cv);
     const req = new HttpRequest('POST',this.baseURL,formData, {reportProgress: true, responseType: 'text'});
     return this.httpClient.request(req);
