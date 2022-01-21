@@ -18,7 +18,17 @@ export class UtilisateurService {
     return this.httpClient.delete(this.baseURL + "/" + id);
   }
 
-  public save(utilisateur: Utilisateur): Observable<any>{
-    return this.httpClient.post(this.baseURL, utilisateur);
-    }
+  public save(cv:File, utilisateur: Utilisateur): Observable<any>{
+    const formData: FormData = new FormData();
+    formData.append('nomUtilisateur', utilisateur.nomUtilisateur);
+    formData.append('prenomUtilisateur', utilisateur.prenomUtilisateur);
+    formData.append('username',utilisateur.username);
+    formData.append('password',utilisateur.password);
+    formData.append('adresseMail', utilisateur.adresseMail);
+    formData.append('telephone', utilisateur.telephone.toString());
+    formData.append('note', utilisateur.note.toString());
+    formData.append('cv',cv);
+    const req = new HttpRequest('POST',this.baseURL,formData, {reportProgress: true, responseType: 'text'});
+    return this.httpClient.request(req);
+    } 
 }
