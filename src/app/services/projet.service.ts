@@ -21,4 +21,8 @@ export class ProjetService {
   public save(projet: Projet): Observable<any>{
     return this.httpClient.post(this.baseURL, projet);
     }
+
+   public findOne(idP: number):Observable<any>{
+     return this.httpClient.get(this.baseURL+ "/" + idP);
+   } 
 }

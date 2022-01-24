@@ -42,6 +42,14 @@ export class UtilisateurService {
     return this.httpClient.request(req);
     } 
 
+    public findOne(idU: number):Observable<any>{
+      return this.httpClient.get(this.baseURL + "/" + idU);
+    }
+
+    public findByIdUtilisateurAndUsername(idU: number, username: string):Observable<any>{
+      return this.httpClient.get(this.baseURL+ "/" + idU + "/" + username);
+    }
+
     public findByRole(libelle_role: string): Observable<any>{
       return this.httpClient.get(this.baseURL2 + "/" + libelle_role);
     }

@@ -14,6 +14,10 @@ export class EvaluationEntrepriseService {
     return this.httpClient.get(this.baseURL);
   }
 
+  public findOne(idEE: number):Observable<any>{
+     return this.httpClient.get(this.baseURL + "/" + idEE);
+   }
+
   public delete(id: number): Observable<any> {
     return this.httpClient.delete(this.baseURL + "/" + id);
   }
