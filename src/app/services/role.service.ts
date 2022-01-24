@@ -21,4 +21,12 @@ export class RoleService {
   public save(role: Role): Observable<any>{
     return this.httpClient.post(this.baseURL, role);
     }
+
+  public findOne(idR: number):Observable<any>{
+    return this.httpClient.get(this.baseURL + "/" +idR);
+  }
+
+  public findByIdRoleAndLibelle(idR: number, libelle: string){
+    return this.httpClient.get(this.baseURL + "/" + idR + "/" + libelle);
+  }
 }
