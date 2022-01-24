@@ -69,5 +69,15 @@ export class UtilisateurService {
     public nombreJobOwner(): Observable<any>{
       return this.httpClient.get(this.baseURL8);
     }
-
+    public getUtilisateur(id:number):Observable<any>{
+      return this.httpClient.get(this.baseURL+'/'+id)
+    }
+    public updateUtilisateur(user:any);Observable<any>{
+      var userParse = JSON.parse(user);
+      return this.httpClient.put(this.baseURL+'/'+userParse.idUtilisateur,userParse);
+    }
 }
+function user(user: any) {
+  throw new Error('Function not implemented.');
+}
+

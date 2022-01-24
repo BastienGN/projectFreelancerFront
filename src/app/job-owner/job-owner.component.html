@@ -1,58 +1,146 @@
-<div class="row">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-header">
-          <strong>Informations JobOwner</strong>
-          <small>Form</small>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter JobOwner's name">
-              </div>
-            </div>
-          </div><!--/.row-->
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="firstname">Firstname</label>
-                <input type="text" class="form-control" id="firstname" placeholder="Enter JobOwner's firstname">
-              </div>
-            </div>
-          </div><!--/.row-->
-          
-        </div>
-      </div>
-    </div><!--/.col-->
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-header">
-          <strong>Company</strong>
-          <small>Form</small>
-        </div>
-        <div class="card-body">
-          <div class="form-group">
-            <label for="company">Company</label>
-            <input type="text" class="form-control" id="company" placeholder="Enter your company name">
-          </div>
-          <div class="form-group">
-            <label for="country">Country</label>
-            <input type="text" class="form-control" id="country" placeholder="Country name">
-          </div>
-          <div class="row">
-            <div class="form-group col-sm-8">
-              <label for="city">City</label>
-              <input type="text" class="form-control" id="city" placeholder="Enter your city">
-            </div>
-            <div class="form-group col-sm-4">
-              <label for="postal-code">Postal Code</label>
-              <input type="text" class="form-control" id="postal-code" placeholder="Postal Code">
-            </div>
-          </div><!--/.row-->
 
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">
+          <strong>Ajouter un JobOwner</strong>
+          <small>Form</small>
         </div>
+        <div class="animated fadeIn">
+          <!--/.row-->
+          <div class="row">
+                <div class="card-body">
+                  <div class="card-header">
+                    <strong>JobOwner</strong>
+                    <small>Form</small>
+                  </div>
+                  <form (ngSubmit)="saveUtilisateur()">
+                    <div class="form-group row">
+                      
+                      <label class="col-md-3 col-form-label" for="text-input">Nom</label>
+                      <div class="col-md-9">
+                        <input type="text" id="text-input" name="nom" class="form-control"
+                          [(ngModel)]="utilisateur.nomUtilisateur" placeholder="nom...">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="text-input" padding=10px>Prénom</label>
+                      <div class="col-md-9">
+                        <input type="text" id="text-input" name="prenom" class="form-control"
+                          [(ngModel)]="utilisateur.prenomUtilisateur" placeholder="prénom...">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="text-input">Username</label>
+                      <div class="col-md-9">
+                        <input type="text" id="text-input" name="username" class="form-control"
+                          [(ngModel)]="utilisateur.username" placeholder="username...">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="form-control" for="text-input">Password</label>
+                      <div class="col-md-9">
+                        <input type="text" id="text-input" name="password" class="form-control"
+                          [(ngModel)]="utilisateur.password" placeholder="password...">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="file-input" class="col-md-3 col-form-label">Image</label>
+                      <div class="col-md-9"><input type="file" id="file-input" (change)="selectFile($event)" name="file"></div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="card">
+                        <div class="card-header">
+                          <strong>Company</strong>
+                          <small>Form</small>
+                        </div>
+                        <div class="card-body">
+                          <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" class="form-control" id="company" placeholder="Enter your company name">
+                          </div>
+                          <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" class="form-control" id="country" placeholder="Country name">
+                          </div>
+                          <div class="row">
+                            <div class="form-group col-sm-8">
+                              <label for="city">City</label>
+                              <input type="text" class="form-control" id="city" placeholder="Enter your city">
+                            </div>
+                            <div class="form-group col-sm-4">
+                              <label for="postal-code">Postal Code</label>
+                              <input type="text" class="form-control" id="postal-code" placeholder="Postal Code">
+                            </div>
+                          </div><!--/.row-->
+                          
+                        </div>
+                      </div>
+                    </div><!--/.col-->
+                    <div class="col-md-9">
+                      <button class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Ajouter</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+        <div class="row"> 
+          <div class="col-lg-12"> 
+          <div style="width: 300px;"> 
+            <form (ngSubmit)="onSubmit()"> 
+              <div class="form-group"> 
+                <label>Nom</label> 
+                <input type="text" class="form-control" id="nom" name="nom" required [(ngModel)]="nom"> 
+              </div> 
+              <div> 
+                <button type="submit" class="btn btn-block btn-success">Submit</button> 
+              </div> 
+            </form> 
+          </div> 
+        </div> 
+        </div> 
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <i class="fa fa-align-justify"></i> Les JobOwners
+                </div>
+                <div class="card-body">
+                  <table class="table table-bordered table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Role</th>
+                        <th>Adresse</th>
+                        <th>Mail</th>
+                        <th>Téléphone</th>
+                        <th>Date de naissance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let u of utilisateurExtra">
+                        <td>{{u.nomUtilisateur}}</td>
+                        <td>{{u.prenomUtilisateur}}</td>
+                        <td>{{u.username}}</td>
+                        <td>{{u.password}}</td>
+                        <td>{{u.role}}</td>
+                        <td>{{u.mail}}</td>
+                        <td>{{u.telephone}}</td>
+                        <td>{{u.dateNaissance}}</td>
+                        <td><img src="data:image/jpeg;base64,{{u.image}}" height="" width="" /></td>
+                        <td><button (click)="deleteUtilisateur(u.idUtilisateur)">Delete</button></td>
+                      </tr>
+        
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!--/.col-->
+          </div>   
+      </div>
       </div>
     </div><!--/.col-->
-  </div><!--/.row-->
+    
+ 

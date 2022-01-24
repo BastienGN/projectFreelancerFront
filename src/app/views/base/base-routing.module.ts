@@ -15,11 +15,17 @@ import { TooltipsComponent } from './tooltips.component';
 import { NavbarsComponent } from './navbars/navbars.component';
 import { JobOwnerComponent } from '../../job-owner/job-owner.component';
 import { UtilisateursComponent } from '../../utilisateurs/utilisateurs.component';
+import { FreeLancerComponent } from '../../free-lancer/free-lancer.component';
+import { EditUserComponent } from '../../edit-user/edit-user.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
+      {
+        path: 'editUser/:id',
+        component:EditUserComponent,
+      },
       {
         path: 'jobowner',
         component: JobOwnerComponent,
@@ -29,7 +35,7 @@ const routes: Routes = [
       },
       {
         path: 'freelancer',
-        component: JobOwnerComponent,
+        component:FreeLancerComponent,
         data: {
           title: 'Freelancer'
         }

@@ -1,0 +1,32 @@
+<div class="animated fadeIn">
+                <!--/.row-->
+                <div class="row">
+                 
+                    <div class="card-body">
+                      <form (ngSubmit)="saveUtilisateur()">
+                        <div class="form-group row">
+                          <label class="col-md-3 col-form-label" for="text-input">Nom</label>
+                          <div class="col-md-9">
+                            <input type="text" id="text-input" formControlName="nom" class="form-control"
+                              [(ngModel)]="utilisateur.nomUtilisateur" placeholder="nom...">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-md-3 col-form-label" for="text-input" padding=10px>Prénom</label>
+                          <div class="col-md-9">
+                            <input type="text" id="text-input" formControlName="prenom" class="form-control"
+                              [(ngModel)]="utilisateur.prenomUtilisateur" placeholder="prénom...">
+                          </div>
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="file-input" class="col-md-3 col-form-label">Image</label>
+                          <div class="col-md-9"><input type="file" id="file-input" (change)="selectFile($event)" name="file"></div>
+                        </div>
+                        <div class="col-md-9">
+                          <button class="btn btn-sm btn-primary" (click)="updateUtilisateur()"><i class="fa fa-dot-circle-o"></i> Ajouter</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+</div>

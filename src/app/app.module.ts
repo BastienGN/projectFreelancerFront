@@ -44,6 +44,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { JobOwnerComponent } from './job-owner/job-owner.component';
 import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
+import { FreeLancerComponent } from './free-lancer/free-lancer.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   imports: [
@@ -70,7 +72,9 @@ import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
     LoginComponent,
     RegisterComponent,
     JobOwnerComponent,
-    UtilisateursComponent
+    UtilisateursComponent,
+    FreeLancerComponent,
+    EditUserComponent
   ],
   providers: [
     {
