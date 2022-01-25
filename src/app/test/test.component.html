@@ -1,0 +1,58 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Ajouter un Test
+                </div>
+                <div class="card-body">
+                    <form (submit)="saveTest()">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Description</label>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" name="description" class="form-control"
+                                    [(ngModel)]="test.description" placeholder="Test ...">
+                            </div>
+                            <label class="col-md-3 col-form-label" for="text-input">Resultat</label>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" name="resultat" class="form-control"
+                                    [(ngModel)]="test.resultat" placeholder="resultat">
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary px-4"><i class="fa fa-dot-circle-o"></i>
+                                    Ajouter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Les Projets
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>Description du Test</th>
+                                <th>Resultat</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let t of tests">
+                                <td>{{t.description}}</td>
+                                <td>{{t.resultat}}</td>
+                                <td><button (click)="deleteTest(t.idTest)">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

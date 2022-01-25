@@ -48,6 +48,7 @@ import { FreeLancerComponent } from './free-lancer/free-lancer.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ProjetService } from './services/projet.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   imports: [
@@ -78,6 +79,7 @@ import { HttpClientModule } from '@angular/common/http';
     UtilisateursComponent,
     FreeLancerComponent,
     EditUserComponent,
+    TestComponent,
   ],
   providers: [
     {

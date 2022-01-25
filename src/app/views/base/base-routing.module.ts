@@ -17,7 +17,7 @@ import { JobOwnerComponent } from '../../job-owner/job-owner.component';
 import { UtilisateursComponent } from '../../utilisateurs/utilisateurs.component';
 import { FreeLancerComponent } from '../../free-lancer/free-lancer.component';
 import { EditUserComponent } from '../../edit-user/edit-user.component';
-import { ProjetComponent } from '../../projet/projet.component';
+import { TestComponent } from '../../test/test.component';
 
 const routes: Routes = [
   {
@@ -38,6 +38,13 @@ const routes: Routes = [
         }
       },
       {
+        path: 'test',
+        component:TestComponent,
+        data: {
+          title: 'Test'
+        }
+      },
+      {
         path: 'jobowner',
         component: JobOwnerComponent,
         data: {
@@ -52,12 +59,6 @@ const routes: Routes = [
         }
       },
       {
-        path: 'projet',
-        component: ProjetComponent,
-        data: {
-          title: 'Projet'
-      }
-    },{
         path: 'utilisateurs',
         component: UtilisateursComponent,
         data: {

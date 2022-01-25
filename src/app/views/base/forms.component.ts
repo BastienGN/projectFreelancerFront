@@ -25,12 +25,8 @@ export class FormsComponent implements OnInit {
 
   saveProjet() {
     this.projetService.save(this.projet).subscribe(
-      () => {
-        this.findAll();
-        this.projet = new Projet();
-      }
-    )
-  }
+      () => { this.findAll(); this.projet = new Projet(); })}
+      
 
   findOne(id: number) {
     this.projetService.findOne(id).subscribe(data => { this.projet = data });

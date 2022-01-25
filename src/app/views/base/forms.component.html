@@ -6,7 +6,7 @@
                     Ajouter un Projet
                 </div>
                 <div class="card-body">
-                    <form (ngSubmit)="saveProjet()">
+                    <form (submit)="saveProjet()">
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label" for="text-input">Titre</label>
                             <div class="col-md-9">
@@ -17,18 +17,14 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label" for="text-input">Statut du Projet</label>
                             <div class="col-md-9">
-                                <!--
-                                <input type="text" id="text-input" name="description" class="form-control"
-                                    [(ngModel)]="projet.statut" placeholder="Statut du Projet">
-                                -->
-                                <select class="form-control" id="ccmonth">
-                                    <option>En recrutement</option>
+                                  <select [(ngModel)]="projet.statut" class="form-control" id="ccmonth">
+                                    <option>En recrutement</option>>
                                     <option>Fin du recrutement</option>
-                                  </select>
+                                 </select>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Ajouter</button>
+                            <button type="submit" class="btn btn-primary px-4"><i class="fa fa-dot-circle-o"></i> Ajouter</button>
                         </div>
                     </form>
                 </div>
