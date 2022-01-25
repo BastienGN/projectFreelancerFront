@@ -46,6 +46,7 @@ import { JobOwnerComponent } from './job-owner/job-owner.component';
 import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
 import { FreeLancerComponent } from './free-lancer/free-lancer.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { ProjetComponent } from './projet/projet.component';
 
 @NgModule({
   imports: [
@@ -74,7 +75,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     JobOwnerComponent,
     UtilisateursComponent,
     FreeLancerComponent,
-    EditUserComponent
+    EditUserComponent,
+    ProjetComponent
   ],
   providers: [
     {

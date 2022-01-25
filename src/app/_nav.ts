@@ -30,20 +30,8 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Projets',
-    url: '/base/projets',
-    icon: 'icon-puzzle',
-    children: [
-      {
-        name: 'JobOwners',
-        url: '/base/projets/jobowners',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'FreeLancers',
-        url: '/base/projets/freelancers',
-        icon: 'icon-puzzle'
-      },
-    ]
+    url: '/base/projet',
+    icon: 'icon-drop'
   },
   {
     name: 'Evaluations',
