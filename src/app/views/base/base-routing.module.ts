@@ -21,10 +21,20 @@ import { EditUserComponent } from '../../edit-user/edit-user.component';
 const routes: Routes = [
   {
     path: '',
+    data: {
+      title: 'Base'
+    },
     children: [
       {
         path: 'editUser/:id',
         component:EditUserComponent,
+      },
+      {
+        path: 'forms',
+        component:FormsComponent,
+        data: {
+          title: 'Projet'
+        }
       },
       {
         path: 'jobowner',

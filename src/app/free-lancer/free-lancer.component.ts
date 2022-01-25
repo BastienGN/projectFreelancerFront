@@ -7,8 +7,8 @@ import { Component, Inject, OnInit } from '@angular/core';
   styleUrls: ['./free-lancer.component.scss']
 })
 export class FreeLancerComponent implements OnInit {
-  constructor(@Inject(DOCUMENT) private _document: any) {}
-
+  constructor(/*@Inject(DOCUMENT) private _document: any*/) {}
+/*
   public themeColors(): void {
     Array.from(this._document.querySelectorAll('.theme-color')).forEach((el: HTMLElement) => {
       const background = getStyle('background-color', el);
@@ -28,15 +28,17 @@ export class FreeLancerComponent implements OnInit {
       el.parentNode.appendChild(table);
     });
   }
+  */
   ngOnInit(): void {
   }
 
 }
+/*
 function getStyle(arg0: string, el: HTMLElement) {
   throw new Error('Function not implemented.');
 }
 
 function rgbToHex(background: any) {
   throw new Error('Function not implemented.');
-}
+}*/
 

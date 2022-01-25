@@ -12,6 +12,11 @@ export const navItems: INavData[] = [
     icon: 'icon-pencil'
   },
   {
+    name: 'Projet',
+    url: '/base/forms',
+    icon: 'icon-pencil'
+  },
+  {
     name: 'Utilisateurs',
     url: '/base/utilisateurs',
     icon: 'icon-cursor',
@@ -27,11 +32,6 @@ export const navItems: INavData[] = [
         icon: 'icon-cursor'
       },
     ]
-  },
-  {
-    name: 'Projets',
-    url: '/base/projet',
-    icon: 'icon-drop'
   },
   {
     name: 'Evaluations',

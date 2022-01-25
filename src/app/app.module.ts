@@ -46,7 +46,8 @@ import { JobOwnerComponent } from './job-owner/job-owner.component';
 import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
 import { FreeLancerComponent } from './free-lancer/free-lancer.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
-import { ProjetComponent } from './projet/projet.component';
+import { ProjetService } from './services/projet.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -64,6 +65,7 @@ import { ProjetComponent } from './projet/projet.component';
     ChartsModule,
     IconModule,
     IconSetModule.forRoot(),
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
@@ -76,14 +78,14 @@ import { ProjetComponent } from './projet/projet.component';
     UtilisateursComponent,
     FreeLancerComponent,
     EditUserComponent,
-    ProjetComponent
   ],
   providers: [
     {
       provide: LocationStrategy,
-      useClass: HashLocationStrategy
+      useClass: HashLocationStrategy,
     },
     IconSetService,
+    ProjetService
   ],
   bootstrap: [ AppComponent ]
 })

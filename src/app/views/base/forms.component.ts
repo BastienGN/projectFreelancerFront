@@ -1,26 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Projet } from '../../models/projet';
+import { ProjetService } from '../../services/projet.service';
 
 @Component({
   templateUrl: 'forms.component.html'
 })
-export class FormsComponent {
+export class FormsComponent implements OnInit {
+  projets: any;
+  projet: Projet = new Projet();
 
-  constructor() { }
 
-  isCollapsed: boolean = false;
-  iconCollapse: string = 'icon-arrow-up';
+  constructor(private projetService: ProjetService) { }
 
-  collapsed(event: any): void {
-    // console.log(event);
+  ngOnInit(): void {
+    this.findAll();
   }
 
-  expanded(event: any): void {
-    // console.log(event);
+  findAll() {
+    this.projetService.findAll().subscribe(data => { this.projets = data });
+  }
+  deleteProjet(id: number) {
+    this.projetService.delete(id).subscribe(() => { this.findAll() });
   }
 
-  toggleCollapse(): void {
-    this.isCollapsed = !this.isCollapsed;
-    this.iconCollapse = this.isCollapsed ? 'icon-arrow-down' : 'icon-arrow-up';
+  saveProjet() {
+    this.projetService.save(this.projet).subscribe(
+      () => {
+        this.findAll();
+        this.projet = new Projet();
+      }
+    )
   }
 
+  findOne(id: number) {
+    this.projetService.findOne(id).subscribe(data => { this.projet = data });
+  }
 }

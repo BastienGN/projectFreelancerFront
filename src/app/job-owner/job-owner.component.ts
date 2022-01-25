@@ -16,7 +16,8 @@ export class JobOwnerComponent implements OnInit{
   utilisateurService: any;
   findAll: any;
 
-  constructor(@Inject(DOCUMENT) private _document: any, private router:Router ) {}
+  constructor(/*@Inject(DOCUMENT) private _document: any,*/ private router:Router ) {}
+  /*
   config: Routes;
   events: Observable<Event>;
   routerState: RouterState;
@@ -87,7 +88,7 @@ export class JobOwnerComponent implements OnInit{
       `;
       el.parentNode.appendChild(table);
     });
-  }
+  }*/
   ngOnInit(): void {
   }
 
@@ -104,11 +105,12 @@ export class JobOwnerComponent implements OnInit{
    }
 
 }
+/*
 function getStyle(arg0: string, el: HTMLElement) {
   throw new Error('Function not implemented.');
 }
 
 function rgbToHex(background: void) {
   throw new Error('Function not implemented.');
-}
+}*/
 
