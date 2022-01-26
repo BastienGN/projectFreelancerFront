@@ -44,4 +44,8 @@ export class CandidatureComponent implements OnInit {
     this.candidatureService.findOne(id).subscribe(data => { this.candidature = data });
   }
 
+  findCandidatureByUsername(username:string){
+    this.candidatureService.findCandidatureByUsername(username).subscribe(data => {this.candidature = data});
+  }
+
 }
