@@ -1,0 +1,85 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Donnez votre Avis sur le Freelancer
+                </div>
+                <div class="card-body">
+                    <form (submit)="saveEvaluationCandidat()">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Note</label>
+                            <!--
+                            <div class="col-md-9">
+                                <input type="number" id="text-input" name="note" class="form-control"
+                                    [(ngModel)]="evaluationCandidat.note" placeholder="Changer avec Etoile ?">
+                            </div>
+                            -->
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="note" id="radio1" value="option2" [(ngModel)]="evaluationCandidat.note" checked>
+                                <label class="form-check-label" for="radio1">
+                                  1
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="note" id="radio2" value="option2">
+                                <label class="form-check-label" for="radio2">
+                                  2
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="note" id="radio3" value="option3">
+                                <label class="form-check-label" for="radio3">
+                                  3
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="note" id="radio3" value="option3">
+                                <label class="form-check-label" for="radio3">
+                                  4
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="note" id="radio3" value="option3">
+                                <label class="form-check-label" for="radio3">
+                                  5
+                                </label>
+                              </div>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary px-4"><i class="fa fa-dot-circle-o"></i>
+                                    Ajouter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Notes des Candidats
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>Note</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let ec of evaluationCandidats">
+                                <td>{{ec.note}}</td>
+                                <td><button (click)="deleteEvaluationCandidat(ec.idEvaluationCandidat)">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

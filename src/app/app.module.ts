@@ -49,6 +49,9 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { ProjetService } from './services/projet.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
+import { CandidatureComponent } from './candidature/candidature.component';
+import { EvaluationEntrepriseComponent } from './evaluation-entreprise/evaluation-entreprise.component';
+import { EvaluationCandidatComponent } from './evaluation-candidat/evaluation-candidat.component';
 
 @NgModule({
   imports: [
@@ -80,6 +83,9 @@ import { TestComponent } from './test/test.component';
     FreeLancerComponent,
     EditUserComponent,
     TestComponent,
+    CandidatureComponent,
+    EvaluationEntrepriseComponent,
+    EvaluationCandidatComponent,
   ],
   providers: [
     {
