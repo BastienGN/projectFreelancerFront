@@ -1,0 +1,82 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    Ajouter une Candidature
+                </div>
+                <div class="card-body">
+                    <form (submit)="saveCandidature()">
+                        <div class="form-group row">
+                            <!--
+                            <label class="col-md-3 col-form-label" for="text-input">Lettre de Motivation</label>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" name="lettre_motivation" class="form-control"
+                                    [(ngModel)]="candidature.lettreMotivation" placeholder="Pourquoi nous rejoindre ?">
+                            </div>
+                            -->
+
+                            <label class="col-md-3 col-form-label" for="textarea-input">Lettre de Motivation</label>
+                            <div class="col-md-9">
+                                <textarea id="textarea-input" name="textarea-input" rows="9" class="form-control"
+                                    [(ngModel)]="candidature.lettreMotivation"
+                                    placeholder="Parler nous de vous ..."></textarea>
+                            </div>
+
+                            <label class="col-md-3 col-form-label" for="text-input">Statut de la Candidature</label>
+                            <div class="col-md-9">
+                                <select [(ngModel)]="candidature.statut" class="form-control" id="ccmonth">
+                                    <option>En attente</option>>
+                                    <option>Acceptée</option>
+                                    <option>Refusée</option>
+                                </select>
+                            </div>
+
+                            <label class="col-md-3 col-form-label" for="text-input">Projet associé</label>
+                            <div class="col-md-9">
+                                <select [(ngModel)]="candidature.projet.idProjet" name="projet" class="form-control"
+                                    id="projet">
+                                    <option *ngFor="let p of projets">{{p.titre}}</option>>
+                                </select>
+                            </div>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary px-4"><i class="fa fa-dot-circle-o"></i>
+                                    Ajouter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Les Candidatures
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>Lettre de Motivation</th>
+                                <th>Statut de la Candidature</th>
+                                <th>Projet associé</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let c of candidatures">
+                                <td>{{c.lettreMotivation}}</td>
+                                <td>{{c.statut}}</td>
+                                <td>{{c.projet.titre}}</td>
+                                <td><button (click)="deleteCandidature(c.idCandidature)">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

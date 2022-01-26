@@ -18,6 +18,9 @@ import { UtilisateursComponent } from '../../utilisateurs/utilisateurs.component
 import { FreeLancerComponent } from '../../free-lancer/free-lancer.component';
 import { EditUserComponent } from '../../edit-user/edit-user.component';
 import { TestComponent } from '../../test/test.component';
+import { CandidatureComponent } from '../../candidature/candidature.component';
+import { EvaluationEntrepriseComponent } from '../../evaluation-entreprise/evaluation-entreprise.component';
+import { EvaluationCandidatComponent } from '../../evaluation-candidat/evaluation-candidat.component';
 
 const routes: Routes = [
   {
@@ -42,6 +45,27 @@ const routes: Routes = [
         component:TestComponent,
         data: {
           title: 'Test'
+        }
+      },
+      {
+        path: 'candidature',
+        component:CandidatureComponent,
+        data: {
+          title: 'Candidature'
+        }
+      },
+      {
+        path: 'evaluationEntreprise',
+        component:EvaluationEntrepriseComponent,
+        data: {
+          title: 'EvaluationEntreprise'
+        }
+      },
+      {
+        path: 'evaluationCandidat',
+        component:EvaluationCandidatComponent,
+        data: {
+          title: 'EvaluationCandidat'
         }
       },
       {

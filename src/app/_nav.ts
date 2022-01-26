@@ -22,6 +22,11 @@ export const navItems: INavData[] = [
     icon: 'icon-pencil'
   },
   {
+    name: 'Candidature',
+    url: '/base/candidature',
+    icon: 'icon-pencil'
+  },
+  {
     name: 'Utilisateurs',
     url: '/base/utilisateurs',
     icon: 'icon-cursor',
@@ -44,13 +49,13 @@ export const navItems: INavData[] = [
     icon: 'icon-star',
     children: [
       {
-        name: 'Entreprises',
-        url: '/base/evaluations/evaluationEntreprises',
+        name: 'Evaluation des Entreprises',
+        url: '/base/evaluationEntreprise',
         icon: 'icon-star'
       },
       {
-        name: 'FreeLancers',
-        url: '/base/evaluations/evaluationFreelancers',
+        name: 'Evaluation des Candidats',
+        url: '/base/evaluationCandidat',
         icon: 'icon-star'
       },
     ]

@@ -15,7 +15,7 @@ export class CandidatureService {
     return this.httpClient.get(this.baseURL);
   }
 
-  public findOner(idC:number):Observable<any>{
+  public findOne(idC:number):Observable<any>{
     return this.httpClient.get(this.baseURL + "/" + idC);
   }
 
