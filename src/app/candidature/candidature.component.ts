@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Candidature } from '../models/candidature';
 import { CandidatureService } from '../services/candidature.service';
+import { ProjetService } from '../services/projet.service';
 
 @Component({
   selector: 'app-candidature',
@@ -9,12 +10,22 @@ import { CandidatureService } from '../services/candidature.service';
 })
 export class CandidatureComponent implements OnInit {
   candidatures:any;
-  candidature: Candidature = new Candidature();
+  candidature: Candidature;
+  projets:Array<string>;
 
-  constructor(private candidatureService: CandidatureService) { }
+  constructor(private candidatureService: CandidatureService, private projetService: ProjetService) {
+    this.projets=[];
+    this.findAllProjet();
+    this.candidature=new Candidature();
+    this.candidature.projet=[];
+  }
 
   ngOnInit(): void {
-    this.findAll();
+    this.findAll();  
+  }
+
+  findAllProjet(){
+    this.projetService.findAll().subscribe((projets:Array<string>) => { this.projets = projets; console.log(this.projets) });
   }
 
   findAll() {
