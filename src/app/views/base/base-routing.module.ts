@@ -66,13 +66,13 @@ const routes: Routes = [
         },
         children:[
           {
-            path: 'utilisateurs/jobowner',
+            path: 'jobowner',
             component: JobOwnerComponent,
             data: {
-              title: 'JobOwner'
+              title: 'JobOwners'
             }
           },{
-            path: 'utilisateurs/freelancer',
+            path: 'freelancer',
             component: FreeLancerComponent,
             data: {
               title: 'FreeLancers'

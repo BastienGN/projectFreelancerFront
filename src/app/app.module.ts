@@ -49,6 +49,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { ProjetService } from './services/projet.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -66,7 +67,8 @@ import { TestComponent } from './test/test.component';
     ChartsModule,
     IconModule,
     IconSetModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,

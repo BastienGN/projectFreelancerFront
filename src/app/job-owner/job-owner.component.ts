@@ -3,6 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Event, Navigation, NavigationBehaviorOptions, NavigationExtras, Router, RouteReuseStrategy, RouterState, Routes, UrlCreationOptions, UrlHandlingStrategy, UrlSerializer, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Utilisateur } from '../models/utilisateur';
+import { UtilisateurService } from '../services/utilisateur.service';
 
 @Component({
   selector: 'app-job-owner',
@@ -12,11 +13,12 @@ import { Utilisateur } from '../models/utilisateur';
 export class JobOwnerComponent implements OnInit{
   currentFileUpload: File;
   selectedFiles: any;
-  utilisateur: any;
-  utilisateurService: any;
-  findAll: any;
+  utilisateur: Utilisateur=new Utilisateur;
+  utilisateurs: any;
+ 
+ 
 
-  constructor(/*@Inject(DOCUMENT) private _document: any,*/ private router:Router ) {}
+  constructor(/*@Inject(DOCUMENT) private _document: any,*/private utilisateurService: UtilisateurService, private router:Router ) {}
   /*
   config: Routes;
   events: Observable<Event>;
@@ -90,6 +92,15 @@ export class JobOwnerComponent implements OnInit{
     });
   }*/
   ngOnInit(): void {
+    this.findAll();
+  }
+
+  findAll() {
+    this.utilisateurService.findAll().subscribe(data => { this.utilisateur = data });
+  }
+
+  deleteJobOwner(id: number) {
+    this.utilisateurService.delete(id).subscribe(() => { this.findAll() });
   }
 
   editJobOwner(user:Utilisateur){
