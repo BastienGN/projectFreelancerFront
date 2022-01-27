@@ -36,7 +36,7 @@ import {
 } from '@coreui/angular';
 
 // Import routing module
-import { AppRoutingModule } from './app.routing';
+import { AppRoutingModule, routes } from './app.routing';
 
 // Import 3rd party components
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -53,6 +53,7 @@ import { FormsModule } from '@angular/forms';
 import { CandidatureComponent } from './candidature/candidature.component';
 import { EvaluationEntrepriseComponent } from './evaluation-entreprise/evaluation-entreprise.component';
 import { EvaluationCandidatComponent } from './evaluation-candidat/evaluation-candidat.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -71,7 +72,11 @@ import { EvaluationCandidatComponent } from './evaluation-candidat/evaluation-ca
     IconModule,
     IconSetModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
   ],
   declarations: [
     AppComponent,
@@ -100,3 +105,4 @@ import { EvaluationCandidatComponent } from './evaluation-candidat/evaluation-ca
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
+
