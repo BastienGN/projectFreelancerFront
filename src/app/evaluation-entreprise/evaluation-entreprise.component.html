@@ -8,38 +8,40 @@
                 <div class="card-body">
                     <form (submit)="saveEvaluationEntreprise()">
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label" for="text-input">Note</label>
-                                <!--
-                                <input type="number" id="text-input" name="note" class="form-control"
-                                    [(ngModel)]="evaluationEntreprise.note" placeholder="Changer avec Etoile ?">
-                                -->
+                            <label class="col-md-3 col-form-label" for="usernameJobowner">Username</label>
+                                
+                                <input type="text" id="text-input" name="usernameJobowner" class="form-control"
+                                    [(ngModel)]="evaluationEntreprise.usernameJobowner" placeholder="Username...">
+                                
+
+                                <label class="col-md-3 col-form-label" for="note">Note</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="note" id="radio1" value="option2" [(ngModel)]="evaluationEntreprise.note" checked>
-                                        <label class="form-check-label" for="radio1">
+                                        <input class="form-check-input" type="radio" name="note1" id="radio1" value="1" [(ngModel)]="evaluationEntreprise.note" checked>
+                                        <label class="form-check-label" for="note1">
                                         1
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="note" id="radio2" value="option2">
-                                        <label class="form-check-label" for="radio2">
+                                        <input class="form-check-input" type="radio" name="note2" id="radio2" value="2" [(ngModel)]="evaluationEntreprise.note"> 
+                                        <label class="form-check-label" for="note2">
                                         2
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="note" id="radio3" value="option3">
-                                        <label class="form-check-label" for="radio3">
+                                        <input class="form-check-input" type="radio" name="note3" id="radio3" value="3" [(ngModel)]="evaluationEntreprise.note">
+                                        <label class="form-check-label" for="note3">
                                         3
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="note" id="radio3" value="option3">
-                                        <label class="form-check-label" for="radio3">
+                                        <input class="form-check-input" type="radio" name="note4" id="radio4" value="4" [(ngModel)]="evaluationEntreprise.note">
+                                        <label class="form-check-label" for="note4">
                                         4
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="note" id="radio3" value="option3">
-                                        <label class="form-check-label" for="radio3">
+                                        <input class="form-check-input" type="radio" name="note5" id="radio5" value="5" [(ngModel)]="evaluationEntreprise.note">
+                                        <label class="form-check-label" for="note5">
                                         5
                                         </label>
 
@@ -65,12 +67,14 @@
                     <table class="table table-bordered table-striped table-sm">
                         <thead>
                             <tr>
+                                <th>Username</th>
                                 <th>Note</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let ee of evaluationEntreprises">
+                                <td>{{ee.usernameJobowner}}</td>
                                 <td>{{ee.note}}</td>
                                 <td><button
                                         (click)="deleteEvaluationEntreprise(ee.idEvaluationEntreprise)">Delete</button>

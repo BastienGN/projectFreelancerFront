@@ -8,44 +8,53 @@
                 <div class="card-body">
                     <form (submit)="saveEvaluationCandidat()">
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label" for="text-input">Note</label>
-                            <!--
-                            <div class="col-md-9">
-                                <input type="number" id="text-input" name="note" class="form-control"
-                                    [(ngModel)]="evaluationCandidat.note" placeholder="Changer avec Etoile ?">
-                            </div>
-                            -->
+                            <label class="col-md-3 col-form-label" for="usernameFreelancer">Username</label>
 
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="note" id="radio1" value="option2" [(ngModel)]="evaluationCandidat.note" checked>
-                                <label class="form-check-label" for="radio1">
-                                  1
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="note" id="radio2" value="option2">
-                                <label class="form-check-label" for="radio2">
-                                  2
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="note" id="radio3" value="option3">
-                                <label class="form-check-label" for="radio3">
-                                  3
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="note" id="radio3" value="option3">
-                                <label class="form-check-label" for="radio3">
-                                  4
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="note" id="radio3" value="option3">
-                                <label class="form-check-label" for="radio3">
-                                  5
-                                </label>
-                              </div>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" name="usernameFreelancer" class="form-control"
+                                    [(ngModel)]="evaluationCandidat.usernameFreelancer"
+                                    placeholder="Nom d'utilisateur...">
+                            </div>
+
+                            <label class="col-md-3 col-form-label" for="note">Note</label>
+
+                            <div class="col-md-9">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="note1" id="radio1" value="1"
+                                        [(ngModel)]="evaluationCandidat.note">
+                                    <label class="form-check-label" for="note1">
+                                        1
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="note2" id="radio2"
+                                        value="2" [(ngModel)]="evaluationCandidat.note">
+                                    <label class="form-check-label" for="note2">
+                                        2
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="note3" id="radio3"
+                                        value="3" [(ngModel)]="evaluationCandidat.note">
+                                    <label class="form-check-label" for="note3">
+                                        3
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="note4" id="radio4"
+                                        value="4" [(ngModel)]="evaluationCandidat.note">
+                                    <label class="form-check-label" for="note4">
+                                        4
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="note5" id="radio5"
+                                        value="5" [(ngModel)]="evaluationCandidat.note">
+                                    <label class="form-check-label" for="note5">
+                                        5
+                                    </label>
+                                </div>
+                            </div>
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary px-4"><i class="fa fa-dot-circle-o"></i>
@@ -67,14 +76,17 @@
                     <table class="table table-bordered table-striped table-sm">
                         <thead>
                             <tr>
+                                <th>Username</th>
                                 <th>Note</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let ec of evaluationCandidats">
+                                <td>{{ec.usernameFreelancer}}</td>
                                 <td>{{ec.note}}</td>
-                                <td><button (click)="deleteEvaluationCandidat(ec.idEvaluationCandidat)">Delete</button></td>
+                                <td><button (click)="deleteEvaluationCandidat(ec.idEvaluationCandidat)">Delete</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

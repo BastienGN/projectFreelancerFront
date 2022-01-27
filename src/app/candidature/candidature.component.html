@@ -8,16 +8,25 @@
                 <div class="card-body">
                     <form (submit)="saveCandidature()">
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label" for="textarea-input">Lettre de Motivation</label>
+
+                            <label class="col-md-3 col-form-label" for="username">Username</label>
                             <div class="col-md-9">
-                                <textarea id="textarea-input" name="textarea-input" rows="9" class="form-control"
+                                <input type="text" id="text-input" name="username" class="form-control"
+                                    [(ngModel)]="candidature.username" placeholder="Nom d'utilisateur ...">
+                            </div>
+
+                            <label class="col-md-3 col-form-label" for="lettreMotivation">Lettre de Motivation</label>
+
+                            <div class="col-md-9">
+                                <textarea id="textarea-input" name="lettreMotivation" rows="9" class="form-control"
                                     [(ngModel)]="candidature.lettreMotivation"
                                     placeholder="Parler nous de vous ..."></textarea>
                             </div>
 
-                            <label class="col-md-3 col-form-label" for="text-input">Statut de la Candidature</label>
+                            <label class="col-md-3 col-form-label" for="statut">Statut de la Candidature</label>
                             <div class="col-md-9">
-                                <select [(ngModel)]="candidature.statut" class="form-control" id="ccmonth">
+                                <select [(ngModel)]="candidature.statut" name="statut" class="form-control"
+                                    id="ccmonth">
                                     <option>En attente</option>>
                                     <option>Acceptée</option>
                                     <option>Refusée</option>
@@ -53,6 +62,7 @@
                     <table class="table table-bordered table-striped table-sm">
                         <thead>
                             <tr>
+                                <th>Nom d'utilisateur</th>
                                 <th>Lettre de Motivation</th>
                                 <th>Statut de la Candidature</th>
                                 <th>Projet associé</th>
@@ -61,6 +71,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let c of candidatures">
+                                <td>{{c.username}}</td>
                                 <td>{{c.lettreMotivation}}</td>
                                 <td>{{c.statut}}</td>
                                 <td>{{c.projet.titre}}</td>

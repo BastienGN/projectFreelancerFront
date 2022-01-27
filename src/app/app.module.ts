@@ -52,6 +52,7 @@ import { TestComponent } from './test/test.component';
 import { CandidatureComponent } from './candidature/candidature.component';
 import { EvaluationEntrepriseComponent } from './evaluation-entreprise/evaluation-entreprise.component';
 import { EvaluationCandidatComponent } from './evaluation-candidat/evaluation-candidat.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -69,7 +70,8 @@ import { EvaluationCandidatComponent } from './evaluation-candidat/evaluation-ca
     ChartsModule,
     IconModule,
     IconSetModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,

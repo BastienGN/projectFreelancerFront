@@ -25,13 +25,7 @@ export class CandidatureService {
 
   public save(candidature: Candidature): Observable<any>{
     return this.httpClient.post(this.baseURL, candidature);
-    /*const formData: FormData = new FormData();
-    formData.append('statut', candidature.statut);
-    formData.append('lettreMotivation', candidature.lettreMotivation);
-    formData.append('username', candidature.username);
-    const req = new HttpRequest('POST',this.baseURL,formData, {reportProgress: true, responseType: 'text'});
-    return this.httpClient.request(req);*/
-  }
+    }
   
   public findCandidatureByUsername(username: string):Observable<any>{
     return this.httpClient.get(this.baseURL2 + "/" + username);

@@ -8,12 +8,12 @@
                 <div class="card-body">
                     <form (submit)="saveTest()">
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label" for="text-input">Description</label>
+                            <label class="col-md-3 col-form-label" for="description">Description</label>
                             <div class="col-md-9">
                                 <input type="text" id="text-input" name="description" class="form-control"
                                     [(ngModel)]="test.description" placeholder="Test ...">
                             </div>
-                            <label class="col-md-3 col-form-label" for="text-input">Resultat</label>
+                            <label class="col-md-3 col-form-label" for="resultat">Resultat</label>
                             <div class="col-md-9">
                                 <input type="text" id="text-input" name="resultat" class="form-control"
                                     [(ngModel)]="test.resultat" placeholder="resultat">
