@@ -10,7 +10,7 @@ import { UtilisateurService } from '../services/utilisateur.service';
 })
 export class FreeLancerComponent implements OnInit {
 
-freelancer:Utilisateur = new Utilisateur;
+utilisateur:Utilisateur = new Utilisateur;
 freelancers:any;
 utilisateurService: UtilisateurService;
 cv?: File;
@@ -39,22 +39,22 @@ constructor(/*@Inject(DOCUMENT) private _document: any*/private freelancerServic
   }
   */
   ngOnInit(): void {
-    this.findAll();
+    this.findAllFreeLancer();
   }
-  findAll() {
-    this.freelancerService.findAll().subscribe(data => { this.freelancers = data });
+  findAllFreeLancer() {
+    this.freelancerService.findByRole("freelancer").subscribe(data => { this.freelancers = data });
   }
   deleteFreeLancer(id: number) {
-    this.freelancerService.delete(id).subscribe(() => { this.findAll() });
+    this.freelancerService.delete(id).subscribe(() => { this.findAllFreeLancer() });
   }
 
   saveFreeLancer() {
-    this.freelancerService.save(this.freelancer).subscribe(
-      () => { this.findAll(); this.freelancer = new Utilisateur(); })}
+    this.freelancerService.save(this.utilisateur).subscribe(
+      () => { this.findAllFreeLancer(); this.utilisateur = new Utilisateur(); })}
       
 
   findOne(id: number) {
-    this.freelancerService.findOne(id).subscribe(data => { this.freelancer = data });
+    this.freelancerService.findOne(id).subscribe(data => { this.utilisateur = data });
   }
 
 }
