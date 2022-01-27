@@ -12,6 +12,11 @@ export class UtilisateursComponent implements OnInit {
   utilisateur: Utilisateur=new Utilisateur;
   utilisateurs:any;
   cv?: File;
+  jobowner: Utilisateur=new Utilisateur();
+  jobowners: any;
+  freelancer: Utilisateur=new Utilisateur();
+  freelancers:any;
+  
 
 
   constructor(private utilisateurService:UtilisateurService) { }
@@ -21,6 +26,8 @@ export class UtilisateursComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAllUtilisateurs();
+    this.findAllFreeLancer();
+    this.findAllJobowner();
   }
   findAllUtilisateurs() {
     this.utilisateurService.findAll().subscribe(data => { this.utilisateurs = data });
@@ -33,6 +40,20 @@ export class UtilisateursComponent implements OnInit {
     this.utilisateurService.save(this.utilisateur).subscribe(
       () => { this.findAllUtilisateurs(); this.utilisateur = new Utilisateur(); })}
       
+  findAllFreeLancer() {
+        this.utilisateurService.findByRole("freelancer").subscribe(data => { this.freelancers = data });
+      }
+  deleteFreeLancer(id: number) {
+        this.utilisateurService.delete(id).subscribe(() => { this.findAllFreeLancer() });
+      }
+  findAllJobowner() {
+        this.utilisateurService.findByRole("jobowner").subscribe(data => { this.jobowners = data });
+      }
+  deleteJobowner(id: number) {
+        this.utilisateurService.delete(id).subscribe(() => { this.findAllJobowner() });
+      }
+      
+
 
   findOne(id: number) {
     this.utilisateurService.findOne(id).subscribe(data => { this.utilisateur = data });
