@@ -10,35 +10,35 @@
                   <div class="card-body">
                     <form (ngSubmit)="saveUtilisateur()">
                       <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="text-input">Nom</label>
+                        <label class="col-md-3 col-form-label" for="nom">Nom</label>
                         <div class="col-md-9">
                           <input type="text" id="text-input" name="nom" class="form-control"
                             [(ngModel)]="utilisateur.nomUtilisateur" placeholder="nom...">
                         </div>
-                      </div>
+                      </div>i
                       <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="text-input" padding=10px>Prénom</label>
+                        <label class="col-md-3 col-form-label" for="prenom" padding=10px>Prénom</label>
                         <div class="col-md-9">
                           <input type="text" id="text-input" name="prenom" class="form-control"
                             [(ngModel)]="utilisateur.prenomUtilisateur" placeholder="prénom...">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="text-input">Username</label>
+                        <label class="col-md-3 col-form-label" for="username">Username</label>
                         <div class="col-md-9">
                           <input type="text" id="text-input" name="username" class="form-control"
                             [(ngModel)]="utilisateur.username" placeholder="username...">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="text-input">Password</label>
+                        <label class="col-md-3 col-form-label" for="password">Password</label>
                         <div class="col-md-9">
                           <input type="text" id="text-input" name="password" class="form-control"
                             [(ngModel)]="utilisateur.password" placeholder="password...">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="file-input" class="col-md-3 col-form-label">Image</label>
+                        <label for="file-input" class="col-md-3 col-form-label">CV</label>
                         <div class="col-md-9"><input type="file" id="file-input" (change)="selectFile($event)" name="file"></div>
                       </div>
                       <div class="col-md-9">
@@ -76,20 +76,20 @@
                           <th>Prénom</th>
                           <th>Username</th>
                           <th>Password</th>
-                          <th>Role</th>
                           <th>Adresse</th>
                           <th>Mail</th>
                           <th>Téléphone</th>
                           <th>Date de naissance</th>
+                          <th>CV</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let u of utilisateurExtra">
+                        <tr *ngFor="let u of freelancers">
                           <td>{{u.nomUtilisateur}}</td>
                           <td>{{u.prenomUtilisateur}}</td>
                           <td>{{u.username}}</td>
                           <td>{{u.password}}</td>
-                          <td>{{u.role}}</td>
+                          <td>{{u.adresse}}</td>
                           <td>{{u.mail}}</td>
                           <td>{{u.telephone}}</td>
                           <td>{{u.dateNaissance}}</td>
