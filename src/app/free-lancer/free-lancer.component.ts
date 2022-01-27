@@ -49,7 +49,7 @@ constructor(/*@Inject(DOCUMENT) private _document: any*/private freelancerServic
   }
 
   saveFreeLancer() {
-    this.freelancerService.save(this.cv,this.freelancer).subscribe(
+    this.freelancerService.save(this.freelancer).subscribe(
       () => { this.findAll(); this.freelancer = new Utilisateur(); })}
       
 

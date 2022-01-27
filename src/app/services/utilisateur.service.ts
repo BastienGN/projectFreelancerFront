@@ -31,7 +31,11 @@ export class UtilisateurService {
     return this.httpClient.delete(this.baseURL + "/" + id);
   }
 
-  
+  public save(utilisateur: Utilisateur): Observable<any>{
+    return this.httpClient.post(this.baseURL, utilisateur);
+    }
+
+  /*
   public save(cv:File,utilisateur: Utilisateur): Observable<any>{
     const formData: FormData = new FormData();
     formData.append('nomUtilisateur', utilisateur.nomUtilisateur);
@@ -44,7 +48,7 @@ export class UtilisateurService {
     formData.append('cv',cv);
     const req = new HttpRequest('POST',this.baseURL,formData, {reportProgress: true, responseType: 'text'});
     return this.httpClient.request(req);
-    } 
+    } */
 
     public findOne(idU: number):Observable<any>{
       return this.httpClient.get(this.baseURL + "/" + idU);

@@ -30,7 +30,7 @@ export class UtilisateursComponent implements OnInit {
   }
 
   saveUtilisateur() {
-    this.utilisateurService.save(this.cv,this.utilisateur).subscribe(
+    this.utilisateurService.save(this.utilisateur).subscribe(
       () => { this.findAllUtilisateurs(); this.utilisateur = new Utilisateur(); })}
       
 
