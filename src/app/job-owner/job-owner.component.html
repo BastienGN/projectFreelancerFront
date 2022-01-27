@@ -1,3 +1,109 @@
+<div class="animated fadeIn">
+  <div class="row">
+      <div class="col-md-6">
+          <div class="card">
+              <div class="card-header">
+                  Ajouter un JobOwner
+              </div>
+              <div class="card-body">
+                  <form (submit)="saveJobowner()">
+                      <div class="form-group row">
+
+                          <label class="col-md-3 col-form-label" for="nom">Nom</label>
+                          <div class="col-md-9">
+                              <input type="text" id="text-input" name="nom" class="form-control"
+                                  [(ngModel)]="utilisateur.nomUtilisateur" placeholder="Nom ...">
+                          </div>
+
+                          <label class="col-md-3 col-form-label" for="prenom">Prénom</label>
+                          <div class="col-md-9">
+                              <input type="text" id="text-input" name="prenom" class="form-control"
+                                  [(ngModel)]="utilisateur.prenomUtilisateur" placeholder="Prenom ...">
+                          </div>
+
+                          <label class="col-md-3 col-form-label" for="username">Username</label>
+                          <div class="col-md-9">
+                              <input type="text" id="text-input" name="username" class="form-control"
+                                  [(ngModel)]="utilisateur.username" placeholder="Username...">
+                          </div>
+
+                          <label class="col-md-3 col-form-label" for="password">Mot de Passe</label>
+                          <div class="col-md-9">
+                              <input type="text" id="text-input" name="password" class="form-control"
+                                  [(ngModel)]="utilisateur.password" placeholder="Mot de Passe...">
+                          </div>
+
+                          <label class="col-md-3 col-form-label" for="adresseMail">E-mail</label>
+                          <div class="col-md-9">
+                              <input type="text" id="text-input" name="adresseMail" class="form-control"
+                                  [(ngModel)]="utilisateur.adresseMail" placeholder="E-mail...">
+                          </div>
+
+                          <label class="col-md-3 col-form-label" for="telephone">Téléphone</label>
+                          <div class="col-md-9">
+                              <input type="text" id="text-input" name="telephone" class="form-control"
+                                  [(ngModel)]="utilisateur.telephone" placeholder="Telephone...">
+                          </div>
+
+                          <label class="col-md-3 col-form-label" for="nomEntreprise">Nom de l'Entreprise</label>
+                          <div class="col-md-9">
+                              <input type="text" id="text-input" name="nomEntreprise" class="form-control"
+                                  [(ngModel)]="utilisateur.nomEntreprise" placeholder="Nom de l'entreprise...">
+                          </div>
+
+                          <div class="card-footer">
+                              <button type="submit" class="btn btn-primary px-4"><i class="fa fa-dot-circle-o"></i>
+                                  S'inscrire</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="card">
+              <div class="card-header">
+                  <i class="fa fa-align-justify"></i> Listes des Utilisateurs
+              </div>
+              <div class="card-body">
+                  <table class="table table-bordered table-striped table-sm">
+                      <thead>
+                          <tr>
+                              <th>Nom</th>
+                              <th>Prénom</th>
+                              <th>username</th>
+                              <th>E-mail</th>
+                              <th>Téléphone</th>
+                              <th>Nom de l'Entreprise</th>
+                              <th>Note</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let j of jobowners">
+                              <td>{{j.nomUtilisateur}}</td>
+                              <td>{{j.prenomUtilisateur}}</td>
+                              <td>{{j.username}}</td>
+                              <td>{{j.adresseMail}}</td>
+                              <td>{{j.telephone}}</td>
+                              <td>{{j.nomEntreprise}}</td>
+                              <td>{{j.note}}</td>
+                              <td><button (click)="deleteJobowner(j.idUtilisateur)">Delete</button></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+<!--
 <div class="col-lg-12">
   <div class="card">
     <div class="card-header">
@@ -5,7 +111,6 @@
       <small>Form</small>
     </div>
     <div class="animated fadeIn">
-      <!--/.row-->
       <div class="row">
         <div class="card-body">
           <div class="card-header">
@@ -104,12 +209,10 @@
                       <input type="text" class="form-control" id="postal-code" placeholder="Postal Code">
                     </div>
                   </div>
-                  <!--/.row-->
 
                 </div>
               </div>
             </div>
-            <!--/.col-->
             <div class="col-md-9">
               <button type="submit" class="btn btn-primary" (click)="ajouterJobOwner()"><i class="fa fa-dot-circle-o"></i>
                 Ajouter</button>
@@ -171,8 +274,6 @@
             </div>
           </div>
         </div>
-        <!--/.col-->
       </div>
     </div>
-  </div>
-  <!--/.col-->
+  </div> -->

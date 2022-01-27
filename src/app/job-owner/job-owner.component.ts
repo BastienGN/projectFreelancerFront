@@ -12,7 +12,6 @@ export class JobOwnerComponent implements OnInit{
   selectedFiles: any;
   utilisateur: Utilisateur=new Utilisateur;
   jobowners: any;
-  role: string="jobwner";
  
  
 
@@ -23,16 +22,16 @@ export class JobOwnerComponent implements OnInit{
   }
 
   findAllJobowner() {
-    this.utilisateurService.findByRole(this.role).subscribe(data => { this.jobowners = data });
+    this.utilisateurService.findByRole("jobowner").subscribe(data => { this.jobowners = data });
   }
   deleteJobowner(id: number) {
     this.utilisateurService.delete(id).subscribe(() => { this.findAllJobowner() });
   }
-  /*
+  
   saveJobowner() {
     this.utilisateurService.save(this.utilisateur).subscribe(
       () => { this.findAllJobowner(); this.utilisateur = new Utilisateur(); })}
-    */
+    
 
   findOne(id: number) {
     this.utilisateurService.findOne(id).subscribe(data => { this.utilisateur = data });
