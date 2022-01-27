@@ -31,6 +31,7 @@ export class UtilisateurService {
     return this.httpClient.delete(this.baseURL + "/" + id);
   }
 
+  
   public save(cv:File,utilisateur: Utilisateur): Observable<any>{
     const formData: FormData = new FormData();
     formData.append('nomUtilisateur', utilisateur.nomUtilisateur);

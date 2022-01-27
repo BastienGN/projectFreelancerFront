@@ -8,4 +8,5 @@ export class Utilisateur {
     telephone!:string;
     cv!:File;
     note!:string;
+    nomEntreprise!:string;
 }
