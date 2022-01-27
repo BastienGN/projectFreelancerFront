@@ -13,7 +13,15 @@ export class LoginComponent {
   login(){
     console.log("username="+this.credentials.username);
     console.log("password="+this.credentials.password);
-    this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/base/forms")});
+    this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/dashboard")});
     return false;
+  }
+
+  RedirectJobOwner(){
+    this.router.navigateByUrl("/base/jobowner");
+  }
+
+  RedirectFreelancer(){
+    this.router.navigateByUrl("/base/freelancer");
   }
  }
