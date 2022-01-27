@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppService } from '../app.service';
 import { Utilisateur } from '../models/utilisateur';
 import { UtilisateurService } from '../services/utilisateur.service';
 
@@ -15,7 +17,7 @@ export class JobOwnerComponent implements OnInit{
  
  
 
-  constructor(private utilisateurService: UtilisateurService) {}
+  constructor(private utilisateurService: UtilisateurService, private appService:AppService,private router: Router) {}
 
   ngOnInit(): void {
     this.findAllJobowner();
@@ -35,6 +37,18 @@ export class JobOwnerComponent implements OnInit{
 
   findOne(id: number) {
     this.utilisateurService.findOne(id).subscribe(data => { this.utilisateur = data });
+  }
+
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  log(){
+    if(this.appService.isAdmin==false){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
   /*

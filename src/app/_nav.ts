@@ -2,6 +2,11 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
+    name: 'Login / Register',
+    url: '/login',
+    icon: 'icon-drop'
+  },
+  {
     name: 'FreeLancers',
     url: '/base/freelancer',
     icon: 'icon-drop'

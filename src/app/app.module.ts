@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -47,13 +47,24 @@ import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
 import { FreeLancerComponent } from './free-lancer/free-lancer.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ProjetService } from './services/projet.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
 import { FormsModule } from '@angular/forms';
 import { CandidatureComponent } from './candidature/candidature.component';
 import { EvaluationEntrepriseComponent } from './evaluation-entreprise/evaluation-entreprise.component';
 import { EvaluationCandidatComponent } from './evaluation-candidat/evaluation-candidat.component';
 import { RouterModule } from '@angular/router';
+import { AppService } from './app.service';
+
+@Injectable()
+export class XhrInterceptor implements HttpInterceptor {
+intercept(req:HttpRequest<any>, next: HttpHandler){
+  const xhr=req.clone({
+    headers: req.headers.set('X-Requested-With','XMLHttpRequest')
+  });
+  return next.handle(xhr);
+}
+}
 
 @NgModule({
   imports: [
@@ -92,14 +103,16 @@ import { RouterModule } from '@angular/router';
     TestComponent,
     CandidatureComponent,
     EvaluationEntrepriseComponent,
-    EvaluationCandidatComponent,
+    EvaluationCandidatComponent
   ],
   providers: [
+    AppService,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy,
     },
     IconSetService,
+    {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true},
     ProjetService
   ],
   bootstrap: [ AppComponent ]
