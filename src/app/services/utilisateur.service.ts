@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Utilisateur } from '../models/utilisateur';
 import { Role } from '../models/role';
 import { Candidature } from '../models/candidature';
+import { JobOwnerComponent } from '../job-owner/job-owner.component';
+/*import { FreeLancerComponent } from '../free-lancer/free-lancer.component';*/
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,7 @@ export class UtilisateurService {
 
   constructor(private httpClient: HttpClient) { }
 
+
   public findAll(): Observable<any> {
     return this.httpClient.get(this.baseURL);
   }
@@ -28,7 +31,7 @@ export class UtilisateurService {
     return this.httpClient.delete(this.baseURL + "/" + id);
   }
 
-  public save(cv:File, utilisateur: Utilisateur): Observable<any>{
+  public save(cv:File,utilisateur: Utilisateur): Observable<any>{
     const formData: FormData = new FormData();
     formData.append('nomUtilisateur', utilisateur.nomUtilisateur);
     formData.append('prenomUtilisateur', utilisateur.prenomUtilisateur);
@@ -85,7 +88,5 @@ export class UtilisateurService {
       return this.httpClient.put(this.baseURL+'/'+userParse.idUtilisateur,userParse);
     }
 }
-function user(user: any) {
-  throw new Error('Function not implemented.');
-}
+
 

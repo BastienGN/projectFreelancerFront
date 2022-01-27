@@ -1,5 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
+import { Utilisateur } from '../models/utilisateur';
+import { UtilisateurService } from '../services/utilisateur.service';
 
 @Component({
   selector: 'app-free-lancer',
@@ -7,7 +9,14 @@ import { Component, Inject, OnInit } from '@angular/core';
   styleUrls: ['./free-lancer.component.scss']
 })
 export class FreeLancerComponent implements OnInit {
-  constructor(/*@Inject(DOCUMENT) private _document: any*/) {}
+
+freelancer:Utilisateur = new Utilisateur;
+freelancers:any;
+utilisateurService: UtilisateurService;
+cv?: File;
+
+constructor(/*@Inject(DOCUMENT) private _document: any*/private freelancerService: UtilisateurService) {}
+ 
 /*
   public themeColors(): void {
     Array.from(this._document.querySelectorAll('.theme-color')).forEach((el: HTMLElement) => {
@@ -30,6 +39,22 @@ export class FreeLancerComponent implements OnInit {
   }
   */
   ngOnInit(): void {
+    this.findAll();
+  }
+  findAll() {
+    this.freelancerService.findAll().subscribe(data => { this.freelancers = data });
+  }
+  deleteFreeLancer(id: number) {
+    this.freelancerService.delete(id).subscribe(() => { this.findAll() });
+  }
+
+  saveFreeLancer() {
+    this.freelancerService.save(this.cv,this.freelancer).subscribe(
+      () => { this.findAll(); this.freelancer = new Utilisateur(); })}
+      
+
+  findOne(id: number) {
+    this.freelancerService.findOne(id).subscribe(data => { this.freelancer = data });
   }
 
 }
