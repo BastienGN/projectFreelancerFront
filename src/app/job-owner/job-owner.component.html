@@ -1,6 +1,6 @@
 <div class="animated fadeIn">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
           Ajouter un JobOwner
@@ -60,7 +60,7 @@
                   </option>
                 </select>
               </div>
-            -->
+              -->
               
               
               <div class="card-footer">
@@ -74,41 +74,42 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header">
-          <i class="fa fa-align-justify"></i> Listes des Utilisateurs
-        </div>
-        <div class="card-body">
-          <table class="table table-bordered table-striped table-sm">
-            <thead>
-              <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>username</th>
-                <th>E-mail</th>
-                <th>Téléphone</th>
-                <th>Nom de l'Entreprise</th>
-                <th>Note</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let j of jobowners">
-                <td>{{j.nomUtilisateur}}</td>
-                <td>{{j.prenomUtilisateur}}</td>
-                <td>{{j.username}}</td>
-                <td>{{j.adresseMail}}</td>
-                <td>{{j.telephone}}</td>
-                <td>{{j.nomEntreprise}}</td>
-                <td>{{j.note}}</td>
-                <td><button (click)="deleteJobowner(j.idUtilisateur)">Delete</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="col-lg-12">
+          <div class="card">
+              <div class="card-header">
+                  <i class="fa fa-align-justify"></i> Listes des Utilisateurs
+              </div>
+              <div class="card-body">
+                  <table class="table table-bordered table-striped table-sm">
+                      <thead>
+                          <tr>
+                              <th>Nom</th>
+                              <th>Prénom</th>
+                              <th>username</th>
+                              <th>Mail</th>
+                              <th>Téléphone</th>
+                              <th>Nom de l'Entreprise</th>
+                              <th>Note</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let j of jobowners">
+                              <td>{{j.nomUtilisateur}}</td>
+                              <td>{{j.prenomUtilisateur}}</td>
+                              <td>{{j.username}}</td>
+                              <td>{{j.adresseMail}}</td>
+                              <td>{{j.telephone}}</td>
+                              <td>{{j.nomEntreprise}}</td>
+                              <td>{{j.note}}</td>
+                              <td><button (click)="deleteJobowner(j.idUtilisateur)">Delete</button></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
       </div>
-    </div>
+    
   </div>
 </div>
 
