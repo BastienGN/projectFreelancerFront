@@ -28,7 +28,7 @@
                                 <th>Nom</th>
                                 <th>Prénom</th>
                                 <th>Username</th>
-                                <th>E-mail</th>
+                                <th>Mail</th>
                                 <th>Téléphone</th>
                                 <th>Nom de l'Entreprise</th>
                                 <th>Note</th>
@@ -98,10 +98,10 @@
                       <th>Prénom</th>
                       <th>Username</th>
                       <th>Password</th>
-                      <th>Adresse</th>
+                      <!-- <th>Adresse</th> -->
                       <th>Mail</th>
                       <th>Téléphone</th>
-                      <th>Date de naissance</th>
+                      <!-- <th>Date de naissance</th> -->
                       <th>CV</th>
                       <th>Action</th>
                     </tr>
@@ -112,10 +112,10 @@
                       <td>{{u.prenomUtilisateur}}</td>
                       <td>{{u.username}}</td>
                       <td>{{u.password}}</td>
-                      <td>{{u.adresse}}</td>
-                      <td>{{u.mail}}</td>
+                      <!-- <td>{{u.adresse}}</td> -->
+                      <td>{{u.adresseMail}}</td>
                       <td>{{u.telephone}}</td>
-                      <td>{{u.dateNaissance}}</td>
+                      <!-- <td>{{u.dateNaissance}}</td> -->
                       <td><img src="data:image/jpeg;base64,{{u.image}}" height="" width="" /></td>
                       <td><button (click)="deleteUtilisateur(u.idUtilisateur)">Delete</button>
                       <button (click)="editUser(u)">Editer</button>
