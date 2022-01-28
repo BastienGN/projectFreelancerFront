@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
+import { Role } from '../models/role';
 import { Utilisateur } from '../models/utilisateur';
+import { RoleService } from '../services/role.service';
 import { UtilisateurService } from '../services/utilisateur.service';
 
 @Component({
@@ -14,13 +16,19 @@ export class JobOwnerComponent implements OnInit{
   selectedFiles: any;
   utilisateur: Utilisateur=new Utilisateur;
   jobowners: any;
+  roles:Role[];
  
  
 
-  constructor(private utilisateurService: UtilisateurService, private appService:AppService,private router: Router) {}
+  constructor(private utilisateurService: UtilisateurService, private appService:AppService,private router: Router, private roleService: RoleService) {}
 
   ngOnInit(): void {
     this.findAllJobowner();
+    this.loadRole();
+  }
+
+  loadRole(){
+    this.roleService.findAll().subscribe(data => {this.roles = data;})
   }
 
   findAllJobowner() {
@@ -32,7 +40,7 @@ export class JobOwnerComponent implements OnInit{
   
   saveJobowner() {
     this.utilisateurService.save(this.utilisateur).subscribe(
-      () => { this.findAllJobowner(); this.utilisateur = new Utilisateur(); })}
+      () => { this.findAllJobowner(); this.utilisateur = new Utilisateur()})}
     
 
   findOne(id: number) {

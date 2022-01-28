@@ -1,3 +1,5 @@
+import { Role } from "./role";
+
 export class Utilisateur {
     idUtilisateur!:number;
     nomUtilisateur!:string
@@ -9,4 +11,5 @@ export class Utilisateur {
     cv!:File;
     note!:string;
     nomEntreprise!:string;
+    roles:Role[];
 }
