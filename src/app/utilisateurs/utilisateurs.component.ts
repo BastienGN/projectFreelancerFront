@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from '../app.service';
 import { Utilisateur } from '../models/utilisateur';
 import { UtilisateurService } from '../services/utilisateur.service';
 
@@ -20,7 +21,7 @@ export class UtilisateursComponent implements OnInit {
   // router2:Router;
 
 
-  constructor(private utilisateurService:UtilisateurService,public router: Router) { }
+  constructor(private utilisateurService:UtilisateurService,public router: Router, private appService: AppService) { }
 
   isCollapsed: boolean = false;
   iconCollapse: string = 'icon-arrow-up';
@@ -72,6 +73,18 @@ export class UtilisateursComponent implements OnInit {
   toggleCollapse(): void {
     this.isCollapsed = !this.isCollapsed;
     this.iconCollapse = this.isCollapsed ? 'icon-arrow-down' : 'icon-arrow-up';
+  }
+
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  logAdmin(){
+    if(this.appService.isAdmin==false){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
 }

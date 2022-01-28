@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../../app.service';
 import { Projet } from '../../models/projet';
 import { ProjetService } from '../../services/projet.service';
 
@@ -10,7 +11,7 @@ export class FormsComponent implements OnInit {
   projet: Projet = new Projet();
 
 
-  constructor(private projetService: ProjetService) { }
+  constructor(private projetService: ProjetService, private appService: AppService) { }
 
   ngOnInit(): void {
     this.findAll();
@@ -30,5 +31,25 @@ export class FormsComponent implements OnInit {
 
   findOne(id: number) {
     this.projetService.findOne(id).subscribe(data => { this.projet = data });
+  }
+
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  log(){
+    if(this.appService.isFreelancer==true){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  logAdmin(){
+    if(this.appService.isAdmin==false){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 }

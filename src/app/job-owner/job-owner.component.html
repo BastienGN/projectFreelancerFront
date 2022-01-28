@@ -3,9 +3,9 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          Ajouter un JobOwner
+          Creer un Compte de JobOwner
         </div>
-        <div class="card-body">
+        <div class="card-body" [hidden]="authenticated()">
           <form (submit)="saveJobowner()">
             <div class="form-group row">
 
@@ -73,6 +73,13 @@
       </div>
     </div>
   </div>
+
+  <div class="card-header" [hidden]="!authenticated()">
+    Vous avez déjà un Compte chez nous !
+  </div>
+
+
+  <!--
   <div class="row">
       <div class="col-lg-12">
           <div class="card">
@@ -112,7 +119,7 @@
     
   </div>
 </div>
-
+-->
 
 
 

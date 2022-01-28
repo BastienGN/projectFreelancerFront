@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 import { Candidature } from '../models/candidature';
 import { CandidatureService } from '../services/candidature.service';
 import { ProjetService } from '../services/projet.service';
@@ -13,7 +14,7 @@ export class CandidatureComponent implements OnInit {
   candidature: Candidature;
   projets:Array<string>;
 
-  constructor(private candidatureService: CandidatureService, private projetService: ProjetService) {
+  constructor(private candidatureService: CandidatureService, private projetService: ProjetService, private appService: AppService) {
     this.projets=[];
     this.findAllProjet();
     this.candidature=new Candidature();
@@ -46,6 +47,26 @@ export class CandidatureComponent implements OnInit {
 
   findCandidatureByUsername(username:string){
     this.candidatureService.findCandidatureByUsername(username).subscribe(data => {this.candidature = data});
+  }
+
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  log(){
+    if(this.appService.isJobowner==true){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  logAdmin(){
+    if(this.appService.isAdmin==false){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
 }

@@ -1,97 +1,107 @@
-<div class="animated fadeIn">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    Donnez votre Avis sur le Freelancer
+<div [hidden]="!authenticated()">
+    <div class="animated fadeIn" [hidden]="log()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Donnez votre Avis sur le Freelancer
+                    </div>
+                    <div class="card-body">
+                        <form (submit)="saveEvaluationCandidat()">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label" for="usernameFreelancer">Username</label>
+
+                                <div class="col-md-9">
+                                    <input type="text" id="text-input" name="usernameFreelancer" class="form-control"
+                                        [(ngModel)]="evaluationCandidat.usernameFreelancer"
+                                        placeholder="Nom d'utilisateur...">
+                                </div>
+
+                                <label class="col-md-3 col-form-label" for="note">Note</label>
+
+                                <div class="col-md-9">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="note1" id="radio1" value="1"
+                                            [(ngModel)]="evaluationCandidat.note">
+                                        <label class="form-check-label" for="note1">
+                                            1
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="note2" id="radio2" value="2"
+                                            [(ngModel)]="evaluationCandidat.note">
+                                        <label class="form-check-label" for="note2">
+                                            2
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="note3" id="radio3" value="3"
+                                            [(ngModel)]="evaluationCandidat.note">
+                                        <label class="form-check-label" for="note3">
+                                            3
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="note4" id="radio4" value="4"
+                                            [(ngModel)]="evaluationCandidat.note">
+                                        <label class="form-check-label" for="note4">
+                                            4
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="note5" id="radio5" value="5"
+                                            [(ngModel)]="evaluationCandidat.note">
+                                        <label class="form-check-label" for="note5">
+                                            5
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary px-4"><i
+                                            class="fa fa-dot-circle-o"></i>
+                                        Ajouter</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <form (submit)="saveEvaluationCandidat()">
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label" for="usernameFreelancer">Username</label>
-
-                            <div class="col-md-9">
-                                <input type="text" id="text-input" name="usernameFreelancer" class="form-control"
-                                    [(ngModel)]="evaluationCandidat.usernameFreelancer"
-                                    placeholder="Nom d'utilisateur...">
-                            </div>
-
-                            <label class="col-md-3 col-form-label" for="note">Note</label>
-
-                            <div class="col-md-9">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="note1" id="radio1" value="1"
-                                        [(ngModel)]="evaluationCandidat.note">
-                                    <label class="form-check-label" for="note1">
-                                        1
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="note2" id="radio2"
-                                        value="2" [(ngModel)]="evaluationCandidat.note">
-                                    <label class="form-check-label" for="note2">
-                                        2
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="note3" id="radio3"
-                                        value="3" [(ngModel)]="evaluationCandidat.note">
-                                    <label class="form-check-label" for="note3">
-                                        3
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="note4" id="radio4"
-                                        value="4" [(ngModel)]="evaluationCandidat.note">
-                                    <label class="form-check-label" for="note4">
-                                        4
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="note5" id="radio5"
-                                        value="5" [(ngModel)]="evaluationCandidat.note">
-                                    <label class="form-check-label" for="note5">
-                                        5
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary px-4"><i class="fa fa-dot-circle-o"></i>
-                                    Ajouter</button>
-                            </div>
-                        </div>
-                    </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-align-justify"></i> Notes des Candidats
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Note</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let ec of evaluationCandidats">
+                                    <td>{{ec.usernameFreelancer}}</td>
+                                    <td>{{ec.note}}</td>
+                                    <td><button
+                                            (click)="deleteEvaluationCandidat(ec.idEvaluationCandidat)">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Notes des Candidats
-                </div>
-                <div class="card-body">
-                    <table class="table table-bordered table-striped table-sm">
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Note</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let ec of evaluationCandidats">
-                                <td>{{ec.usernameFreelancer}}</td>
-                                <td>{{ec.note}}</td>
-                                <td><button (click)="deleteEvaluationCandidat(ec.idEvaluationCandidat)">Delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+    <div class="card-header" [hidden]="!log()">
+        Vous n'avez pas les droits acceder à cette page !
     </div>
+</div>
+<div class="card-header" [hidden]="authenticated()">
+    Veuillez vous Connecter ou Creer un Compte !
 </div>

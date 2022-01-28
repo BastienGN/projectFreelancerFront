@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 import { EvaluationEntreprise } from '../models/evaluation-entreprise';
 import { EvaluationEntrepriseService } from '../services/evaluation-entreprise.service';
 
@@ -11,7 +12,7 @@ export class EvaluationEntrepriseComponent implements OnInit {
   evaluationEntreprises:any;
   evaluationEntreprise: EvaluationEntreprise = new EvaluationEntreprise();
 
-  constructor(private evaluationEntrepriseService: EvaluationEntrepriseService) { }
+  constructor(private evaluationEntrepriseService: EvaluationEntrepriseService, private appService: AppService) { }
 
   ngOnInit(): void {
     this.findAll();
@@ -31,5 +32,25 @@ export class EvaluationEntrepriseComponent implements OnInit {
 
   findOne(id: number) {
     this.evaluationEntrepriseService.findOne(id).subscribe(data => { this.evaluationEntreprise = data });
+  }
+
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  log(){
+    if(this.appService.isJobowner==true){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  logAdmin(){
+    if(this.appService.isAdmin==false){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 }

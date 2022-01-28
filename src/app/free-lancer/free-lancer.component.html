@@ -1,53 +1,63 @@
-    <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header">
-            <strong>Ajouter un FreeLancer</strong>
-            <small>Form</small>
-          </div>
-          <div class="animated fadeIn">
-            <!--/.row-->
-            <div class="row">
-                  <div class="card-body">
-                    <form (ngSubmit)="saveUtilisateur()">
-                      <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="nom">Nom</label>
-                        <div class="col-md-9">
-                          <input type="text" id="text-input" name="nom" class="form-control"
-                            [(ngModel)]="utilisateur.nomUtilisateur" placeholder="Nom...">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="prenom" padding=10px>Prénom</label>
-                        <div class="col-md-9">
-                          <input type="text" id="text-input" name="prenom" class="form-control"
-                            [(ngModel)]="utilisateur.prenomUtilisateur" placeholder="Prénom...">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="username">Username</label>
-                        <div class="col-md-9">
-                          <input type="text" id="text-input" name="username" class="form-control"
-                            [(ngModel)]="utilisateur.username" placeholder="Username...">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="password">Mot de Passe</label>
-                        <div class="col-md-9">
-                          <input type="text" id="text-input" name="password" class="form-control"
-                            [(ngModel)]="utilisateur.password" placeholder="Password...">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="file-input" class="col-md-3 col-form-label">CV</label>
-                        <div class="col-md-9"><input type="file" id="file-input" (change)="selectFile($event)" name="file"></div>
-                      </div>
-                      <div class="card-footer">
-                        <button type="submit" class="btn btn-primary px-4"><i class="fa fa-dot-circle-o"></i>
-                            S'inscrire</button>
-                    </div>
-                    </form>
-                  </div>
-                </div>
+<div class="col-lg-12">
+  <div class="card">
+    <div class="card-header">
+      <strong>Creer un Compte de FreeLancer</strong>
+    </div>
+    <div class="animated fadeIn" [hidden]="authenticated()">
+      <!--/.row-->
+      <div class="row">
+        <div class="card-body">
+          <form (ngSubmit)="saveUtilisateur()">
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="nom">Nom</label>
+              <div class="col-md-9">
+                <input type="text" id="text-input" name="nom" class="form-control"
+                  [(ngModel)]="utilisateur.nomUtilisateur" placeholder="Nom...">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="prenom" padding=10px>Prénom</label>
+              <div class="col-md-9">
+                <input type="text" id="text-input" name="prenom" class="form-control"
+                  [(ngModel)]="utilisateur.prenomUtilisateur" placeholder="Prénom...">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="username">Username</label>
+              <div class="col-md-9">
+                <input type="text" id="text-input" name="username" class="form-control"
+                  [(ngModel)]="utilisateur.username" placeholder="Username...">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="password">Mot de Passe</label>
+              <div class="col-md-9">
+                <input type="text" id="text-input" name="password" class="form-control"
+                  [(ngModel)]="utilisateur.password" placeholder="Password...">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="file-input" class="col-md-3 col-form-label">CV</label>
+              <div class="col-md-9"><input type="file" id="file-input" (change)="selectFile($event)" name="file"></div>
+            </div>
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary px-4"><i class="fa fa-dot-circle-o"></i>
+                S'inscrire</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-header" [hidden]="!authenticated()">
+  Vous avez déjà un Compte chez nous !
+</div>
+
+
+
+<!--
             <div class="row">
               <div class="col-lg-12">
                 <div class="card">
@@ -62,10 +72,10 @@
                           <th>Prénom</th>
                           <th>Username</th>
                           <th>Password</th>
-                          <!-- <th>Adresse</th> -->
+                          <th>Adresse</th>
                           <th>Mail</th>
                           <th>Téléphone</th>
-                          <!-- <th>Date de naissance</th> -->
+                           <th>Date de naissance</th> 
                           <th>CV</th>
                         </tr>
                       </thead>
@@ -75,10 +85,10 @@
                           <td>{{u.prenomUtilisateur}}</td>
                           <td>{{u.username}}</td>
                           <td>{{u.password}}</td>
-                          <!-- <td>{{u.adresse}}</td> -->
+                          <td>{{u.adresse}}</td> 
                           <td>{{u.adresseMail}}</td>
                           <td>{{u.telephone}}</td>
-                          <!-- <td>{{u.dateNaissance}}</td> -->
+                          <td>{{u.dateNaissance}}</td>
                           <td><img src="data:image/jpeg;base64,{{u.image}}" height="" width="" /></td>
                           <td><button (click)="deleteUtilisateur(u.idUtilisateur)">Delete</button>
                           <button (click)="editUser(u)">Editer</button>
@@ -90,9 +100,6 @@
                   </div>
                 </div>
               </div>
-              <!--/.col-->
             </div>   
         </div>
-        </div>
-      </div><!--/.col-->
-    
+        </div> -->

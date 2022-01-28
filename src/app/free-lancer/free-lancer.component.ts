@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 import { Utilisateur } from '../models/utilisateur';
 import { UtilisateurService } from '../services/utilisateur.service';
 
@@ -15,7 +16,7 @@ freelancers:any;
 utilisateurService: UtilisateurService;
 cv?: File;
 
-constructor(/*@Inject(DOCUMENT) private _document: any*/private freelancerService: UtilisateurService) {}
+constructor(/*@Inject(DOCUMENT) private _document: any*/private freelancerService: UtilisateurService, private appService: AppService) {}
  
 /*
   public themeColors(): void {
@@ -57,7 +58,22 @@ constructor(/*@Inject(DOCUMENT) private _document: any*/private freelancerServic
     this.freelancerService.findOne(id).subscribe(data => { this.utilisateur = data });
   }
 
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  log(){
+    if(this.appService.isAdmin==false){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
 }
+
+
+
 /*
 function getStyle(arg0: string, el: HTMLElement) {
   throw new Error('Function not implemented.');
