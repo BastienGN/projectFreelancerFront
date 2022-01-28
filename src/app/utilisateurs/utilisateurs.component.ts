@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Utilisateur } from '../models/utilisateur';
 import { UtilisateurService } from '../services/utilisateur.service';
 
@@ -16,15 +17,16 @@ export class UtilisateursComponent implements OnInit {
   jobowners: any;
   freelancer: Utilisateur=new Utilisateur();
   freelancers:any;
-  
+  // router2:Router;
 
 
-  constructor(private utilisateurService:UtilisateurService) { }
+  constructor(private utilisateurService:UtilisateurService,public router: Router) { }
 
   isCollapsed: boolean = false;
   iconCollapse: string = 'icon-arrow-up';
 
   ngOnInit(): void {
+    console.log(this.router.url);
     this.findAllUtilisateurs();
     this.findAllFreeLancer();
     this.findAllJobowner();
